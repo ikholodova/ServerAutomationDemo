@@ -32,7 +32,7 @@ steps:
       script: 'New-AzResourceGroup -Name $(azure_resource_group_name) -Location eastus -Force'
   - task: Pester@10
     inputs:
-      scriptFolder: "@{Path='$(System.DefaultWorkingDirectory)/server.template.tests.ps1'; Parameters=@{ResourceGroupName='$(azure_resource_group_name)'}}"
+      scriptFolder: "@{Path='*tests.ps1'; Parameters=@{ResourceGroupName='$(azure_resource_group_name)'}}"
       resultsFile: "$(System.DefaultWorkingDirectory)/server.template.tests.XML"
       usePSCore: true
       run32Bit: False
